@@ -3,8 +3,9 @@ from warnings import warn
 import pygame
 import cv2
 import numpy as np
-img = cv2.imread("C:/Users/avaye/Desktop/AStarProject/maze2.jpeg")
-image = cv2.imread("C:/Users/avaye/Desktop/AStarProject/maze2.jpeg")
+import math
+img = cv2.imread("AStarProject/maze2.jpeg")
+image = cv2.imread("AStarProject/maze2.jpeg")
 window_name = 'image'
 
 
@@ -43,7 +44,7 @@ for y in range(img.shape[1]):
 
 path = []
 
-
+"""
 from warnings import warn
 import heapq
 
@@ -216,6 +217,28 @@ def example(print_maze = False):
     return path
 
 #example()
+"""
+
+def manhattan(pixel1, pixel2):
+    distance = abs(pixel1[0]-pixel2[0]) + abs(pixel1[1]-pixel2[1])
+    return distance
+
+def euclidian(pixel1, pixel2):
+    distance = math.sqrt((pixel1[0]-pixel2[0])**2 + (pixel1[1]-pixel2[1])**2)
+    return distance
+
+def blocked(pixel):
+    xVal = pixel[0]
+    yVal = pixel[1]
+    actualPixel = grid[xVal][yVal]
+    if actualPixel == 1:
+        return True
+def vonNeumannNeighborhood(pixel):
+    xVal = pixel[0]
+    yVal = pixel[1]
+    neighborList = []
+    neighbor[0] = xVal-1,y
+    
 
 
 path = example()
