@@ -5,13 +5,13 @@ import cv2
 import numpy as np
 import math
 import time
-img = cv2.imread("AStarProject/maze2.jpeg")
-image = cv2.imread("AStarProject/maze2.jpeg")
+img = cv2.imread("AStarProject/floorplan2.jpg")
+image = cv2.imread("AStarProject/floorplan2.jpg")
 window_name = 'image'
 
 start_time = time.time()
 
-scale_percent = 15
+scale_percent = 100
 width = int(img.shape[1] * scale_percent / 100)
 height = int(img.shape[0] * scale_percent / 100)
 dim = (width, height)
@@ -22,8 +22,10 @@ img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
 image = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
 
 #Morphological Transformation
-#kernel = np.ones((2,2),np.uint8)
-#img = cv2.dilate(img,kernel,iterations = 1)
+kernel = np.ones((2,2),np.uint8)
+img = cv2.dilate(img,kernel,iterations = 1)
+
+
 
 img = cv2.copyMakeBorder(
     img,
@@ -60,12 +62,13 @@ path = []
 
 print("Image Manipulation Time: " + str(time.time()-start_time))
 
+algorithmStart_time = time.time()
 def manhattan(pixel1, pixel2):
     distance = abs(pixel1[0]-pixel2[0]) + abs(pixel1[1]-pixel2[1])
     return distance
 
 def euclidian(pixel1, pixel2):
-    distance = ((pixel1[0]-pixel2[0])**2 + (pixel1[1]-pixel2[1])**2)
+    distance = math.sqrt((pixel1[0]-pixel2[0])**2 + (pixel1[1]-pixel2[1])**2)
     return distance
 
 def vonNeumannNeighborhood(pixel):
@@ -118,13 +121,12 @@ def AStarAlgorithm(begin,end,neighbors,cost):
                 if neighborNode not in openset:
                     heapq.heappush(openset, (f[neighborNode],neighborNode))
     return ["Failure"]
-
-            
     
 start = (1,1)
-goal = (300,300)
+goal = (100,100)
 
 path = AStarAlgorithm(start,goal,vonNeumannNeighborhood,euclidian)
+print("Algorithm run time: " + str(time.time()-algorithmStart_time))      
 path = np.array(path)
 print(path)
 print(len(path))
@@ -216,5 +218,4 @@ def AStarAlgorithm(begin,end,neighbors,cost):
                 if neighborNode not in openset:
                     heapq.heappush(openset, (f[neighborNode],neighborNode))
     return ["Failure"]
-"""
-
+    """
