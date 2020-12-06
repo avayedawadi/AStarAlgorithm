@@ -5,8 +5,8 @@ import numpy as np
 import math
 import time
 def main(image,startingX,startingY,endingX,endingY):
-    #img = cv2.imread("AStarProject/maze2.jpeg")
-    #image = cv2.imread("AStarProject/maze2.jpeg")
+    #img = cv2.imread("maze2.jpeg")
+    #image = cv2.imread("maze2.jpeg")
     img = cv2.imread(image)
     image = cv2.imread(image)
     window_name = 'image'
