@@ -1,6 +1,5 @@
 import heapq
 from warnings import warn
-import pygame
 import cv2
 import numpy as np
 import math

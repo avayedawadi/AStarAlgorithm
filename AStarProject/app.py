@@ -17,7 +17,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def show_index():
     return render_template("index.html")
 
-@app.route('/success', methods = ['POST'])  
+@app.route('/success', methods = ['POST']) 
 def success():  
     if request.method == 'POST':
         filelist = [f for f in os.listdir("AStarProject/static")]
