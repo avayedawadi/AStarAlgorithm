@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <title>Document</title>
-</head>
-<body>
-    <h1>A* Algorithm Website</h1>
-    <br>
-    <form action = "/success" method = "post" enctype="multipart/form-data">  
-      <input type="file" name="file" />  
-      <input type = "submit" value="Upload">  
-  </form>  
-</body>
+  </head>
+  <body>
+    <h1 style="color: #950740; text-align: center">
+      Deciphering Shortest Paths on a Floorplan Using the A* Algorithm
+    </h1>
+    <p style="color: #6f2232; text-align: center">
+      Please note that only .jpg and .jpeg files will be accepted.
+    </p>
+    <br />
+    <form action="/success" method="post" enctype="multipart/form-data">
+      <div style="text-align: center">
+        <input
+          style="
+            background-color: #c3073f;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          "
+          type="file"
+          name="file"
+          accept=".jpg,.jpeg" 
+        />
+      </div>
+      <br />
+      <br />
+      <div style="text-align: center">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+          "
+        >
+          <input
+            style="
+              background-color: #c3073f;
+              border-radius: 8px;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            "
+            type="submit"
+            value="Upload"
+          />
+        </div>
+      </div>
+    </form>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-#!/home/avaye/Projects/AStarAlgorithm/venv/bin/python3
+#!/home/avaye/Projects/AStarAlgorithm/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

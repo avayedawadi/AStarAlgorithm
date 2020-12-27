@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Algorithm completed successfully</h1>
-    <image src="{{ url_for('static',filename=user_image) }}" alt="User Image"></image>
-    <br>
+  </head>
+  <body>
+    <h1 style="color: #950740; text-align: center">
+      Algorithm completed successfully
+    </h1>
+    <image
+      src="{{ url_for('static',filename=user_image) }}"
+      alt="User Image"
+    ></image>
+    <br />
     <form action="/" method="post">
-        <input type="submit" value="Start Over">
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        "
+      >
+        <input
+          type="submit"
+          value="Start Over"
+          style="
+            background-color: #c3073f;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          "
+        />
+      </div>
     </form>
-</body>
+  </body>
 </html>

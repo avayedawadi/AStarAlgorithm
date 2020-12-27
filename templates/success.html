@@ -1,48 +1,97 @@
 <html>
-
-<head>
+  <head>
     <title>success</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
+  </head>
 
-<body>
-    <p>File uploaded successfully</p>
-    <p>File Name: {{name}}</p>
-    <br>
-    <hr>
+  <body>
+    <p style="color: #6f2232">File uploaded successfully</p>
+    <p style="color: #6f2232">File Name: {{name}}</p>
+    <p style="color: #6f2232">Model Prediction: {{model}}</p>
+    <br />
+    <p style="color: #6f2232">
+      Morphological Transformation Suggestion: {{morphSuggest}}
+    </p>
+    <hr />
     <a>
-        <img src="{{ url_for('static',filename=user_image) }}" alt="Floorplan Image" ismap>
-        <script>
-            $(document).ready(function() {
-                $('img').on("mousemove", function(e) {
-                    var offset = $(this).offset();
-                    var X = (e.pageX - offset.left);
-                    var Y = (e.pageY - offset.top);
-                    $('#coord').text('X: ' + X + ', Y: ' + Y);
-                });
-            });
-        </script>
-        <div id="coord"></div>
+      <img
+        src="{{ url_for('static',filename=user_image) }}"
+        alt="Floorplan Image"
+        ismap
+      />
+      <script>
+        $(document).ready(function () {
+          $("img").on("mousemove", function (e) {
+            var offset = $(this).offset();
+            var X = e.pageX - offset.left;
+            var Y = e.pageY - offset.top;
+            $("#coord").text("X: " + X + ", Y: " + Y);
+          });
+        });
+      </script>
+      <div id="coord"></div>
     </a>
-    <br>
-    <form action="/algorithm" method="post">
-        <h3>Input Starting X and Y Coordinates</h3>
-        <label for="startingX">Starting X Coordinate:</label>
-        <input type="number" id="startingX" name="startingX">
-        <label for="startingY">Starting Y Coordinate:</label>
-        <input type="number" id="startingY" name="startingY">
-        
-        <h3>Input Goal X and Y Coordinates</h3>
-        <label for="goalX">Goal X Coordinate:</label>
-        <input type="number" id="goalX" name="goalX">
-        <label for="goalY">Goal Y Coordinate:</label>
-        <input type="number" id="goalY" name="goalY">
-        
-        <br>
-        <br>
-        <input type="submit" value="Run Algorithm">
-    </form>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</body>
+    <br />
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <form action="/algorithm" method="post">
+        <h3 style="color: #c3073f">Input Starting X and Y Coordinates</h3>
+        <p style="color: #6f2232">
+            Please ensure that you're starting and ending pixels are not black so otherwise the algorithm will not function properly.
+          </p>
+        <label style="color: #6f2232" for="startingX"
+          >Starting X Coordinate:</label
+        >
+        <input type="number" id="startingX" name="startingX" />
+        <label style="color: #6f2232" for="startingY"
+          >Starting Y Coordinate:</label
+        >
+        <input type="number" id="startingY" name="startingY" />
 
+        <h3 style="color: #c3073f">Input Goal X and Y Coordinates</h3>
+        <label style="color: #6f2232" for="goalX">Goal X Coordinate:</label>
+        <input type="number" id="goalX" name="goalX" />
+        <label style="color: #6f2232" for="goalY">Goal Y Coordinate:</label>
+        <input type="number" id="goalY" name="goalY" />
+
+        <hr />
+
+        <label style="color: #6f2232" for="morph"
+          >Morphological Transformation:</label
+        >
+        <select name="morph" id="morph">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select>
+
+        <br />
+        <br />
+        <input
+          type="submit"
+          value="Run Algorithm"
+          style="
+            background-color: #c3073f;
+            border-radius: 8px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          "
+        />
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
 </html>

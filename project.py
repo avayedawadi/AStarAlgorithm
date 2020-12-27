@@ -4,7 +4,9 @@ import cv2
 import numpy as np
 import math
 import time
-def main(image,startingX,startingY,endingX,endingY):
+
+
+def main(image,startingX,startingY,endingX,endingY,morphBool):
     #img = cv2.imread("maze2.jpeg")
     #image = cv2.imread("maze2.jpeg")
     img = cv2.imread(image)
@@ -26,9 +28,11 @@ def main(image,startingX,startingY,endingX,endingY):
         img = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
         image = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
 
-    #Morphological Transformation
-    #kernel = np.ones((2,2),np.uint8)
-    #img = cv2.dilate(img,kernel,iterations = 1)
+    if morphBool:
+        #Morphological Transformation
+        kernel = np.ones((2,2),np.uint8)
+        img = cv2.dilate(img,kernel,iterations = 1)
+        img = cv2.erode(img, kernel, iterations=3)
 
 
 
@@ -45,6 +49,7 @@ def main(image,startingX,startingY,endingX,endingY):
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     (thresh, img) = cv2.threshold(img, 127, 255, cv2.THRESH_BINARY)
+
 
 
     grid = []
@@ -149,9 +154,9 @@ def main(image,startingX,startingY,endingX,endingY):
     #return tuple(map(tuple, path))
     return path
 
-
+"""
     #Without Priority Queue
-    """
+    
     def AStarAlgorithm(begin,end,neighbors,cost):
         g = {
             start:0
@@ -190,7 +195,7 @@ def main(image,startingX,startingY,endingX,endingY):
         """
 
     #With Priority Queue
-    """
+"""
     def AStarAlgorithm(begin,end,neighbors,cost):
         g = {
             start:0
