@@ -1,5 +1,4 @@
 import heapq
-from warnings import warn
 import cv2
 import numpy as np
 import math
